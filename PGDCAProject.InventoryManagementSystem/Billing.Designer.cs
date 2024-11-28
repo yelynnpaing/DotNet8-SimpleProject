@@ -56,6 +56,12 @@
             label1 = new Label();
             label14 = new Label();
             dgItemList = new DataGridView();
+            ItemId = new DataGridViewTextBoxColumn();
+            IName = new DataGridViewTextBoxColumn();
+            ICategory = new DataGridViewTextBoxColumn();
+            IPrice = new DataGridViewTextBoxColumn();
+            IStock = new DataGridViewTextBoxColumn();
+            IManufacutrer = new DataGridViewTextBoxColumn();
             DeleteBtn = new Button();
             SaveBtn = new Button();
             label13 = new Label();
@@ -66,19 +72,13 @@
             txtStock = new MaskedTextBox();
             txtPrice = new MaskedTextBox();
             txtItem = new MaskedTextBox();
-            ItemId = new DataGridViewTextBoxColumn();
-            IName = new DataGridViewTextBoxColumn();
-            ICategory = new DataGridViewTextBoxColumn();
-            IPrice = new DataGridViewTextBoxColumn();
-            IStock = new DataGridViewTextBoxColumn();
-            IManufacutrer = new DataGridViewTextBoxColumn();
             dataGridView1 = new DataGridView();
-            label10 = new Label();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             total = new DataGridViewTextBoxColumn();
+            label10 = new Label();
             checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
             checkBox3 = new CheckBox();
@@ -172,9 +172,9 @@
             // 
             panel7.Controls.Add(pictureBox7);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(0, 696);
+            panel7.Location = new Point(13, 696);
             panel7.Name = "panel7";
-            panel7.Size = new Size(276, 50);
+            panel7.Size = new Size(263, 50);
             panel7.TabIndex = 4;
             // 
             // pictureBox7
@@ -372,6 +372,44 @@
             dgItemList.Size = new Size(1052, 282);
             dgItemList.TabIndex = 30;
             // 
+            // ItemId
+            // 
+            ItemId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            ItemId.HeaderText = "ItemId";
+            ItemId.MinimumWidth = 6;
+            ItemId.Name = "ItemId";
+            ItemId.Width = 125;
+            // 
+            // IName
+            // 
+            IName.HeaderText = "ItemName";
+            IName.MinimumWidth = 6;
+            IName.Name = "IName";
+            // 
+            // ICategory
+            // 
+            ICategory.HeaderText = "ItemCategory";
+            ICategory.MinimumWidth = 6;
+            ICategory.Name = "ICategory";
+            // 
+            // IPrice
+            // 
+            IPrice.HeaderText = "ItemPrice";
+            IPrice.MinimumWidth = 6;
+            IPrice.Name = "IPrice";
+            // 
+            // IStock
+            // 
+            IStock.HeaderText = "ItemStock";
+            IStock.MinimumWidth = 6;
+            IStock.Name = "IStock";
+            // 
+            // IManufacutrer
+            // 
+            IManufacutrer.HeaderText = "ItemManufacutrer";
+            IManufacutrer.MinimumWidth = 6;
+            IManufacutrer.Name = "IManufacutrer";
+            // 
             // DeleteBtn
             // 
             DeleteBtn.BackColor = Color.Red;
@@ -458,44 +496,6 @@
             txtItem.Size = new Size(216, 27);
             txtItem.TabIndex = 20;
             // 
-            // ItemId
-            // 
-            ItemId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            ItemId.HeaderText = "ItemId";
-            ItemId.MinimumWidth = 6;
-            ItemId.Name = "ItemId";
-            ItemId.Width = 125;
-            // 
-            // IName
-            // 
-            IName.HeaderText = "ItemName";
-            IName.MinimumWidth = 6;
-            IName.Name = "IName";
-            // 
-            // ICategory
-            // 
-            ICategory.HeaderText = "ItemCategory";
-            ICategory.MinimumWidth = 6;
-            ICategory.Name = "ICategory";
-            // 
-            // IPrice
-            // 
-            IPrice.HeaderText = "ItemPrice";
-            IPrice.MinimumWidth = 6;
-            IPrice.Name = "IPrice";
-            // 
-            // IStock
-            // 
-            IStock.HeaderText = "ItemStock";
-            IStock.MinimumWidth = 6;
-            IStock.Name = "IStock";
-            // 
-            // IManufacutrer
-            // 
-            IManufacutrer.HeaderText = "ItemManufacutrer";
-            IManufacutrer.MinimumWidth = 6;
-            IManufacutrer.Name = "IManufacutrer";
-            // 
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -506,15 +506,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1052, 282);
             dataGridView1.TabIndex = 32;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(302, 738);
-            label10.Name = "label10";
-            label10.Size = new Size(72, 20);
-            label10.TabIndex = 31;
-            label10.Text = "Client Bill";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -547,6 +538,15 @@
             total.HeaderText = "Total";
             total.MinimumWidth = 6;
             total.Name = "total";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(302, 738);
+            label10.Name = "label10";
+            label10.Size = new Size(72, 20);
+            label10.TabIndex = 31;
+            label10.Text = "Client Bill";
             // 
             // checkBox1
             // 
@@ -608,6 +608,7 @@
             Controls.Add(panel1);
             Name = "Billing";
             Text = "Billing";
+            WindowState = FormWindowState.Maximized;
             panel8.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();

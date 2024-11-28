@@ -68,12 +68,12 @@
             SaveBtn = new Button();
             DeleteBtn = new Button();
             dgItemList = new DataGridView();
-            label14 = new Label();
             ItemId = new DataGridViewTextBoxColumn();
             IName = new DataGridViewTextBoxColumn();
             IPrice = new DataGridViewTextBoxColumn();
             IStock = new DataGridViewTextBoxColumn();
             IManufacutrer = new DataGridViewTextBoxColumn();
+            label14 = new Label();
             panel1.SuspendLayout();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -114,9 +114,9 @@
             // 
             panel7.Controls.Add(pictureBox7);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(0, 696);
+            panel7.Location = new Point(16, 696);
             panel7.Name = "panel7";
-            panel7.Size = new Size(276, 50);
+            panel7.Size = new Size(260, 50);
             panel7.TabIndex = 4;
             // 
             // pictureBox7
@@ -467,15 +467,6 @@
             dgItemList.Size = new Size(1164, 282);
             dgItemList.TabIndex = 8;
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(302, 118);
-            label14.Name = "label14";
-            label14.Size = new Size(41, 20);
-            label14.TabIndex = 9;
-            label14.Text = "Item";
-            // 
             // ItemId
             // 
             ItemId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -508,6 +499,15 @@
             IManufacutrer.MinimumWidth = 6;
             IManufacutrer.Name = "IManufacutrer";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(302, 118);
+            label14.Name = "label14";
+            label14.Size = new Size(41, 20);
+            label14.TabIndex = 9;
+            label14.Text = "Item";
+            // 
             // Items
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
@@ -534,6 +534,7 @@
             Font = new Font("Microsoft Sans Serif", 10F);
             Name = "Items";
             Text = "Items";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel7.PerformLayout();

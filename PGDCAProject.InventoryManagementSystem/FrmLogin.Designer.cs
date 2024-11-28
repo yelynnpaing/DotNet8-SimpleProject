@@ -40,7 +40,7 @@
             txtPassword = new TextBox();
             label3 = new Label();
             BtnLogin = new Button();
-            label4 = new Label();
+            Reset = new Label();
             cbShowPassword = new CheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -134,17 +134,19 @@
             BtnLogin.TabIndex = 7;
             BtnLogin.Text = "Login";
             BtnLogin.UseVisualStyleBackColor = false;
+            BtnLogin.Click += BtnLogin_Click;
             // 
-            // label4
+            // Reset
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold | FontStyle.Underline);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(756, 484);
-            label4.Name = "label4";
-            label4.Size = new Size(58, 20);
-            label4.TabIndex = 8;
-            label4.Text = "Reset";
+            Reset.AutoSize = true;
+            Reset.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold | FontStyle.Underline);
+            Reset.ForeColor = Color.Red;
+            Reset.Location = new Point(756, 484);
+            Reset.Name = "Reset";
+            Reset.Size = new Size(58, 20);
+            Reset.TabIndex = 8;
+            Reset.Text = "Reset";
+            Reset.Click += Reset_Click;
             // 
             // cbShowPassword
             // 
@@ -163,7 +165,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1185, 588);
             Controls.Add(cbShowPassword);
-            Controls.Add(label4);
+            Controls.Add(Reset);
             Controls.Add(BtnLogin);
             Controls.Add(txtPassword);
             Controls.Add(label3);
@@ -174,11 +176,13 @@
             Controls.Add(panel1);
             Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
+            MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmLogin";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Form";
+            Load += FrmLogin_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -197,7 +201,7 @@
         private TextBox txtPassword;
         private Label label3;
         private Button BtnLogin;
-        private Label label4;
+        private Label Reset;
         private PictureBox pictureBox2;
         private CheckBox cbShowPassword;
     }

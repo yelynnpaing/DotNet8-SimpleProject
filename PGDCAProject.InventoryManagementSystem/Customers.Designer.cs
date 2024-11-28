@@ -56,6 +56,10 @@
             label1 = new Label();
             label14 = new Label();
             dgItemList = new DataGridView();
+            CusId = new DataGridViewTextBoxColumn();
+            CusName = new DataGridViewTextBoxColumn();
+            Gender = new DataGridViewTextBoxColumn();
+            CusPhone = new DataGridViewTextBoxColumn();
             DeleteBtn = new Button();
             SaveBtn = new Button();
             EditBtn = new Button();
@@ -65,10 +69,6 @@
             label9 = new Label();
             txtPrice = new MaskedTextBox();
             txtItem = new MaskedTextBox();
-            CusId = new DataGridViewTextBoxColumn();
-            CusName = new DataGridViewTextBoxColumn();
-            Gender = new DataGridViewTextBoxColumn();
-            CusPhone = new DataGridViewTextBoxColumn();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -158,15 +158,15 @@
             // 
             panel7.Controls.Add(pictureBox7);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(0, 696);
+            panel7.Location = new Point(13, 696);
             panel7.Name = "panel7";
-            panel7.Size = new Size(276, 50);
+            panel7.Size = new Size(263, 50);
             panel7.TabIndex = 4;
             // 
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(3, 0);
+            pictureBox7.Location = new Point(0, 0);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(52, 49);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -177,7 +177,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(61, 16);
+            label6.Location = new Point(64, 16);
             label6.Name = "label6";
             label6.Size = new Size(80, 20);
             label6.TabIndex = 0;
@@ -343,9 +343,9 @@
             label14.AutoSize = true;
             label14.Location = new Point(306, 150);
             label14.Name = "label14";
-            label14.Size = new Size(39, 20);
+            label14.Size = new Size(116, 20);
             label14.TabIndex = 26;
-            label14.Text = "Item";
+            label14.Text = "Customer Name";
             // 
             // dgItemList
             // 
@@ -357,6 +357,32 @@
             dgItemList.RowHeadersWidth = 51;
             dgItemList.Size = new Size(1164, 282);
             dgItemList.TabIndex = 25;
+            // 
+            // CusId
+            // 
+            CusId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            CusId.HeaderText = "CusId";
+            CusId.MinimumWidth = 6;
+            CusId.Name = "CusId";
+            CusId.Width = 125;
+            // 
+            // CusName
+            // 
+            CusName.HeaderText = "CusName";
+            CusName.MinimumWidth = 6;
+            CusName.Name = "CusName";
+            // 
+            // Gender
+            // 
+            Gender.HeaderText = "Gender";
+            Gender.MinimumWidth = 6;
+            Gender.Name = "Gender";
+            // 
+            // CusPhone
+            // 
+            CusPhone.HeaderText = "Phone";
+            CusPhone.MinimumWidth = 6;
+            CusPhone.Name = "CusPhone";
             // 
             // DeleteBtn
             // 
@@ -439,32 +465,6 @@
             txtItem.Size = new Size(216, 27);
             txtItem.TabIndex = 16;
             // 
-            // CusId
-            // 
-            CusId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            CusId.HeaderText = "CusId";
-            CusId.MinimumWidth = 6;
-            CusId.Name = "CusId";
-            CusId.Width = 125;
-            // 
-            // CusName
-            // 
-            CusName.HeaderText = "CusName";
-            CusName.MinimumWidth = 6;
-            CusName.Name = "CusName";
-            // 
-            // Gender
-            // 
-            Gender.HeaderText = "Gender";
-            Gender.MinimumWidth = 6;
-            Gender.Name = "Gender";
-            // 
-            // CusPhone
-            // 
-            CusPhone.HeaderText = "Phone";
-            CusPhone.MinimumWidth = 6;
-            CusPhone.Name = "CusPhone";
-            // 
             // Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -486,6 +486,7 @@
             Controls.Add(panel1);
             Name = "Customers";
             Text = "Customers";
+            WindowState = FormWindowState.Maximized;
             panel8.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();

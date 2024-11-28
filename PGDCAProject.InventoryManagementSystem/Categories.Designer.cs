@@ -54,6 +54,8 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             dgItemList = new DataGridView();
+            ItemId = new DataGridViewTextBoxColumn();
+            IName = new DataGridViewTextBoxColumn();
             DeleteBtn = new Button();
             SaveBtn = new Button();
             EditBtn = new Button();
@@ -61,8 +63,7 @@
             label9 = new Label();
             txtItem = new MaskedTextBox();
             label8 = new Label();
-            ItemId = new DataGridViewTextBoxColumn();
-            IName = new DataGridViewTextBoxColumn();
+            groupBox1 = new GroupBox();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -81,6 +82,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgItemList).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel8
@@ -142,9 +144,9 @@
             // 
             panel7.Controls.Add(pictureBox7);
             panel7.Controls.Add(label6);
-            panel7.Location = new Point(0, 696);
+            panel7.Location = new Point(13, 696);
             panel7.Name = "panel7";
-            panel7.Size = new Size(276, 50);
+            panel7.Size = new Size(263, 50);
             panel7.TabIndex = 4;
             // 
             // pictureBox7
@@ -333,11 +335,25 @@
             dgItemList.Size = new Size(841, 282);
             dgItemList.TabIndex = 22;
             // 
+            // ItemId
+            // 
+            ItemId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            ItemId.HeaderText = "ItemId";
+            ItemId.MinimumWidth = 6;
+            ItemId.Name = "ItemId";
+            ItemId.Width = 125;
+            // 
+            // IName
+            // 
+            IName.HeaderText = "ItemName";
+            IName.MinimumWidth = 6;
+            IName.Name = "IName";
+            // 
             // DeleteBtn
             // 
             DeleteBtn.BackColor = Color.Red;
             DeleteBtn.ForeColor = Color.White;
-            DeleteBtn.Location = new Point(827, 248);
+            DeleteBtn.Location = new Point(327, 129);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(138, 41);
             DeleteBtn.TabIndex = 19;
@@ -348,7 +364,7 @@
             // 
             SaveBtn.BackColor = Color.FromArgb(0, 192, 0);
             SaveBtn.ForeColor = Color.White;
-            SaveBtn.Location = new Point(683, 248);
+            SaveBtn.Location = new Point(172, 129);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(138, 41);
             SaveBtn.TabIndex = 20;
@@ -358,7 +374,7 @@
             // EditBtn
             // 
             EditBtn.BackColor = Color.Yellow;
-            EditBtn.Location = new Point(539, 248);
+            EditBtn.Location = new Point(17, 129);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(138, 41);
             EditBtn.TabIndex = 21;
@@ -368,7 +384,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(662, 167);
+            label10.Location = new Point(16, 34);
             label10.Name = "label10";
             label10.Size = new Size(69, 20);
             label10.TabIndex = 16;
@@ -385,7 +401,7 @@
             // 
             // txtItem
             // 
-            txtItem.Location = new Point(662, 190);
+            txtItem.Location = new Point(16, 57);
             txtItem.Name = "txtItem";
             txtItem.Size = new Size(216, 27);
             txtItem.TabIndex = 13;
@@ -400,37 +416,33 @@
             label8.TabIndex = 10;
             label8.Text = "Category Management";
             // 
-            // ItemId
+            // groupBox1
             // 
-            ItemId.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            ItemId.HeaderText = "ItemId";
-            ItemId.MinimumWidth = 6;
-            ItemId.Name = "ItemId";
-            ItemId.Width = 125;
-            // 
-            // IName
-            // 
-            IName.HeaderText = "ItemName";
-            IName.MinimumWidth = 6;
-            IName.Name = "IName";
+            groupBox1.Controls.Add(EditBtn);
+            groupBox1.Controls.Add(txtItem);
+            groupBox1.Controls.Add(DeleteBtn);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(SaveBtn);
+            groupBox1.Location = new Point(297, 111);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(841, 207);
+            groupBox1.TabIndex = 23;
+            groupBox1.TabStop = false;
             // 
             // Categories
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1515, 749);
+            Controls.Add(groupBox1);
             Controls.Add(dgItemList);
-            Controls.Add(DeleteBtn);
-            Controls.Add(SaveBtn);
-            Controls.Add(EditBtn);
-            Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(txtItem);
             Controls.Add(label8);
             Controls.Add(panel8);
             Controls.Add(panel1);
             Name = "Categories";
             Text = "Categories";
+            WindowState = FormWindowState.Maximized;
             panel8.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
@@ -456,6 +468,8 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgItemList).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -496,5 +510,6 @@
         private Label label9;
         private MaskedTextBox txtItem;
         private Label label8;
+        private GroupBox groupBox1;
     }
 }
