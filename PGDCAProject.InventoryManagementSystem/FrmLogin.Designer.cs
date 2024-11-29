@@ -114,6 +114,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(441, 30);
             txtPassword.TabIndex = 6;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -158,6 +159,7 @@
             cbShowPassword.TabIndex = 9;
             cbShowPassword.Text = "Show Password";
             cbShowPassword.UseVisualStyleBackColor = true;
+            cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
             // 
             // FrmLogin
             // 
