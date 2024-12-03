@@ -46,11 +46,14 @@ namespace PGDCAProject.InventoryManagementSystem
 
                 if (dset.Tables["users"]!.Rows.Count > 0)
                 {
-                    userName = txtUserName.Text;
-                    password = txtPassword.Text;
+                    //userName = txtUserName.Text;
+                    //password = txtPassword.Text;
 
-                    Items items = new Items();
-                    items.Show();
+                    //Items items = new Items();
+                    //items.Show();
+
+                    Categories categories = new Categories();
+                    categories.ShowDialog();
                     this.Hide();
                 }
                 else

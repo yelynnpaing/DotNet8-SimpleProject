@@ -71,9 +71,9 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(638, 71);
             label1.Name = "label1";
-            label1.Size = new Size(310, 25);
+            label1.Size = new Size(422, 25);
             label1.TabIndex = 1;
-            label1.Text = "Inventory Management System";
+            label1.Text = "Electronics Inventory Management System";
             // 
             // imageList1
             // 
@@ -84,7 +84,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(714, 111);
+            pictureBox1.Location = new Point(776, 108);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(125, 62);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
