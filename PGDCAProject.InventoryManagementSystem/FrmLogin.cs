@@ -52,8 +52,12 @@ namespace PGDCAProject.InventoryManagementSystem
                     //Items items = new Items();
                     //items.Show();
 
-                    Categories categories = new Categories();
-                    categories.ShowDialog();
+                    //Categories categories = new Categories();
+                    //categories.ShowDialog();
+
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+
                     this.Hide();
                 }
                 else
