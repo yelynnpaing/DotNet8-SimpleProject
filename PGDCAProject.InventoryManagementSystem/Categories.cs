@@ -66,6 +66,7 @@ namespace PGDCAProject.InventoryManagementSystem
             adapter.Fill(DSet, "categories");
             dgCategoryList.DataSource = DSet.Tables["categories"];
 
+            dgCategoryList.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dgCategoryList.Columns[0].HeaderText = "Category ID";
             dgCategoryList.Columns[1].HeaderText = "Category Name";
         }

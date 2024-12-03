@@ -96,7 +96,7 @@
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(276, 0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(1648, 72);
+            panel8.Size = new Size(1648, 90);
             panel8.TabIndex = 4;
             // 
             // CloseBtn
@@ -104,7 +104,7 @@
             CloseBtn.BackColor = Color.Red;
             CloseBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CloseBtn.ForeColor = Color.White;
-            CloseBtn.Location = new Point(1588, 18);
+            CloseBtn.Location = new Point(1588, 27);
             CloseBtn.Name = "CloseBtn";
             CloseBtn.Size = new Size(48, 35);
             CloseBtn.TabIndex = 5;
@@ -117,14 +117,14 @@
             panel9.Controls.Add(label7);
             panel9.Location = new Point(0, 3);
             panel9.Name = "panel9";
-            panel9.Size = new Size(520, 66);
+            panel9.Size = new Size(520, 84);
             panel9.TabIndex = 3;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 11F);
-            label7.Location = new Point(21, 22);
+            label7.Location = new Point(20, 29);
             label7.Name = "label7";
             label7.Size = new Size(482, 24);
             label7.TabIndex = 0;
@@ -208,7 +208,7 @@
             // 
             panel6.Controls.Add(pictureBox6);
             panel6.Controls.Add(label5);
-            panel6.Location = new Point(32, 496);
+            panel6.Location = new Point(32, 435);
             panel6.Name = "panel6";
             panel6.Size = new Size(201, 44);
             panel6.TabIndex = 7;
@@ -237,7 +237,7 @@
             // 
             panel5.Controls.Add(pictureBox5);
             panel5.Controls.Add(label4);
-            panel5.Location = new Point(32, 433);
+            panel5.Location = new Point(32, 372);
             panel5.Name = "panel5";
             panel5.Size = new Size(201, 46);
             panel5.TabIndex = 8;
@@ -266,7 +266,7 @@
             // 
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(32, 368);
+            panel4.Location = new Point(32, 307);
             panel4.Name = "panel4";
             panel4.Size = new Size(201, 46);
             panel4.TabIndex = 9;
@@ -295,7 +295,7 @@
             // 
             PItems.Controls.Add(pictureBox2);
             PItems.Controls.Add(label2);
-            PItems.Location = new Point(32, 244);
+            PItems.Location = new Point(32, 183);
             PItems.Name = "PItems";
             PItems.Size = new Size(201, 46);
             PItems.TabIndex = 10;
@@ -324,7 +324,7 @@
             // 
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(32, 307);
+            panel2.Location = new Point(32, 246);
             panel2.Name = "panel2";
             panel2.Size = new Size(201, 43);
             panel2.TabIndex = 6;
@@ -353,10 +353,10 @@
             // 
             dgCategoryList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgCategoryList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgCategoryList.Location = new Point(297, 357);
+            dgCategoryList.Location = new Point(297, 482);
             dgCategoryList.Name = "dgCategoryList";
             dgCategoryList.RowHeadersWidth = 51;
-            dgCategoryList.Size = new Size(841, 282);
+            dgCategoryList.Size = new Size(841, 285);
             dgCategoryList.TabIndex = 22;
             dgCategoryList.Click += dgCategoryList_Click;
             // 
@@ -407,9 +407,10 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(297, 334);
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(296, 446);
             label9.Name = "label9";
-            label9.Size = new Size(95, 20);
+            label9.Size = new Size(126, 28);
             label9.TabIndex = 17;
             label9.Text = "Category List";
             // 
@@ -424,7 +425,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F);
-            label8.Location = new Point(297, 83);
+            label8.Location = new Point(296, 180);
             label8.Name = "label8";
             label8.Size = new Size(212, 25);
             label8.TabIndex = 10;
@@ -440,7 +441,7 @@
             groupBox1.Controls.Add(DeleteBtn);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(SaveBtn);
-            groupBox1.Location = new Point(297, 111);
+            groupBox1.Location = new Point(297, 208);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(841, 207);
             groupBox1.TabIndex = 23;
