@@ -17,31 +17,6 @@ namespace PGDCAProject.InventoryManagementSystem
             InitializeComponent();
         }
 
-
-        //private void ItemsPanel_MouseClick(object sender, MouseEventArgs e)
-        //{
-        //    Items items = new Items();
-        //    items.ShowDialog();
-        //}
-
-        //private void SidebarItems_MouseClick(object sender, MouseEventArgs e)
-        //{
-        //    Items items = new Items();
-        //    items.ShowDialog();
-        //}
-
-        //private void CategoriesPanel_MouseClick(object sender, MouseEventArgs e)
-        //{
-        //    Categories categories = new Categories();
-        //    categories.ShowDialog();
-        //}
-
-        //private void SidebarCategories_MouseClick(object sender, MouseEventArgs e)
-        //{
-        //    Categories categories = new Categories();
-        //    categories.ShowDialog();
-        //}
-
         public void LoadForm(object form)
         {
             if (this.MainPanel.Controls.Count > 0)
@@ -122,6 +97,16 @@ namespace PGDCAProject.InventoryManagementSystem
             this.Close();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
+        }
+
+        private void pboxLogo_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Dashboard());
+        }
+
+        private void LogoLabel_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Dashboard());
         }
     }
 }
