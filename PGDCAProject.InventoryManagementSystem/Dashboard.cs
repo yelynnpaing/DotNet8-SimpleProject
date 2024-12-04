@@ -84,5 +84,44 @@ namespace PGDCAProject.InventoryManagementSystem
         {
             Application.Exit();
         }
+
+        private void SidebarItemsPic_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Items());
+        }
+
+        private void SidebarCategoriesPic_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Categories());
+        }
+
+        private void SidebarCustomerPic_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Customers());
+        }
+
+        private void SidebarBillingPic_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Billing());
+        }
+
+        private void SidebarDashboardPic_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Dashboard());
+        }
+
+        private void LogoutLabel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+        }
+
+        private void LogoutPicture_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+        }
     }
 }
