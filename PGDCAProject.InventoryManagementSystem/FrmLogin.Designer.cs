@@ -69,11 +69,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(638, 71);
+            label1.Location = new Point(560, 67);
             label1.Name = "label1";
-            label1.Size = new Size(422, 25);
+            label1.Size = new Size(530, 25);
             label1.TabIndex = 1;
-            label1.Text = "Electronics Inventory Management System";
+            label1.Text = "Wholesale Electronics Inventory Management System";
             // 
             // imageList1
             // 

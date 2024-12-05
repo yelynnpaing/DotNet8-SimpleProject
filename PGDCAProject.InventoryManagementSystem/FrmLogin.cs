@@ -21,7 +21,6 @@ namespace PGDCAProject.InventoryManagementSystem
             txtUserName.Clear();
             txtPassword.Clear();
             txtUserName.Focus();
-            txtPassword.Focus();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
