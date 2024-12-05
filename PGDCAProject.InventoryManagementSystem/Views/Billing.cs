@@ -74,7 +74,7 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void fillCboCustomers()
         {
-            string query = "SELECT CustomerName FROM TblCustomers";
+            string query = "SELECT CustomerId, CustomerName FROM TblCustomers";
             SqlDataAdapter adapter = new SqlDataAdapter(query, consql);
             DataSet dataSet = new DataSet();
             DataTable dt = new DataTable();
@@ -83,6 +83,7 @@ namespace PGDCAProject.InventoryManagementSystem
 
             cboCustomers.DataSource = dt;
             cboCustomers.DisplayMember = dt.Columns["CustomerName"]!.ToString();
+            cboCustomers.ValueMember = dt.Columns["CustomerId"]!.ToString();
         }
 
         private void GenerateInvoiceNo()
@@ -109,30 +110,29 @@ namespace PGDCAProject.InventoryManagementSystem
             }
         }
 
-        private void Billing_Load(object sender, EventArgs e)
+        private void ListViewColHeaderFill()
         {
-            Clear();
+            lvOrderList.Columns.Add("#", 150);
+            lvOrderList.Columns.Add("ItemName", 250);
+            lvOrderList.Columns.Add("Price", 150);
+            lvOrderList.Columns.Add("Quantity", 130);
+            lvOrderList.Columns.Add("Total", 150);
+        }
+
+        private void Billing_Load(object sender, EventArgs e)
+        { 
             Connection();
             FillCboItems();
+            Clear();
             FillDgItems();
             fillCboCustomers();
+            ListViewColHeaderFill();
         }
 
         private void InvoiceNoBtn_Click(object sender, EventArgs e)
         {
             Clear();
             GenerateInvoiceNo();
-        }
-
-        private void FillOrderData()
-        {
-
-        }
-
-        private void AddToBillBtn_Click(object sender, EventArgs e)
-        {
-            FillOrderData();
-            Clear();
         }
 
         private void cboItems_Leave(object sender, EventArgs e)
@@ -147,7 +147,38 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void txtQuantity_Leave(object sender, EventArgs e)
         {
-            txtTotalCost.Text = (Convert.ToDecimal(txtPrice.Text) * Convert.ToDecimal(txtQuantity.Text)).ToString();
+            try
+            {
+                txtTotalCost.Text = (Convert.ToDecimal(txtPrice.Text) * Convert.ToDecimal(txtQuantity.Text)).ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Please Fill into Quantity", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+        private void AddToBillBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem lvOrderItems = new ListViewItem(
+                   txtInvoiceNum.Text
+                );
+                lvOrderItems.SubItems.Add(cboItems.Text.ToString());
+                lvOrderItems.SubItems.Add(txtPrice.Text);
+                lvOrderItems.SubItems.Add(txtQuantity.Text);
+                lvOrderItems.SubItems.Add(txtTotalCost.Text);
+
+                lvOrderList.Items.Add(lvOrderItems);
+                txtTotalBill.Text = (Convert.ToDecimal(txtTotalCost.Text) + int.Parse(txtTotalBill.Text)).ToString();
+                Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Something Wrong!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
     }
 }

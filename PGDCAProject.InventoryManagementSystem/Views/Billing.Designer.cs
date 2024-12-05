@@ -47,7 +47,9 @@
             cbCards = new CheckBox();
             cbCash = new CheckBox();
             groupBox2 = new GroupBox();
-            listView1 = new ListView();
+            label7 = new Label();
+            lvOrderList = new ListView();
+            txtTotalBill = new MaskedTextBox();
             SaveBtn = new Button();
             txtBillInvoiceNum = new MaskedTextBox();
             label3 = new Label();
@@ -93,7 +95,7 @@
             groupBox1.Controls.Add(AddToBillBtn);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(txtQuantity);
-            groupBox1.Location = new Point(273, 210);
+            groupBox1.Location = new Point(282, 210);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(726, 302);
             groupBox1.TabIndex = 34;
@@ -254,7 +256,9 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(listView1);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(lvOrderList);
+            groupBox2.Controls.Add(txtTotalBill);
             groupBox2.Controls.Add(SaveBtn);
             groupBox2.Controls.Add(txtBillInvoiceNum);
             groupBox2.Controls.Add(label3);
@@ -274,13 +278,34 @@
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
             // 
-            // listView1
+            // label7
             // 
-            listView1.Location = new Point(25, 270);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(838, 524);
-            listView1.TabIndex = 75;
-            listView1.UseCompatibleStateImageBehavior = false;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(463, 766);
+            label7.Name = "label7";
+            label7.Size = new Size(108, 28);
+            label7.TabIndex = 79;
+            label7.Text = "Total Bill - ";
+            // 
+            // lvOrderList
+            // 
+            lvOrderList.GridLines = true;
+            lvOrderList.Location = new Point(25, 270);
+            lvOrderList.Name = "lvOrderList";
+            lvOrderList.Size = new Size(838, 479);
+            lvOrderList.TabIndex = 75;
+            lvOrderList.UseCompatibleStateImageBehavior = false;
+            lvOrderList.View = View.Details;
+            // 
+            // txtTotalBill
+            // 
+            txtTotalBill.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTotalBill.Location = new Point(580, 763);
+            txtTotalBill.Name = "txtTotalBill";
+            txtTotalBill.Size = new Size(283, 31);
+            txtTotalBill.TabIndex = 78;
+            txtTotalBill.Text = "0";
             // 
             // SaveBtn
             // 
@@ -385,7 +410,7 @@
             // 
             groupBox3.Controls.Add(dgItemList);
             groupBox3.Controls.Add(label9);
-            groupBox3.Location = new Point(273, 518);
+            groupBox3.Location = new Point(282, 518);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(726, 505);
             groupBox3.TabIndex = 36;
@@ -482,6 +507,8 @@
         private MaskedTextBox txtPrice;
         private Label label6;
         private MaskedTextBox txtInvoiceNum;
-        private ListView listView1;
+        private ListView lvOrderList;
+        private Label label7;
+        private MaskedTextBox txtTotalBill;
     }
 }
