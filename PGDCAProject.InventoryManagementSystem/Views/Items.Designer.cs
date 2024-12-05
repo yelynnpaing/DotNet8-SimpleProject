@@ -73,7 +73,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 12F);
-            label9.Location = new Point(300, 447);
+            label9.Location = new Point(302, 414);
             label9.Name = "label9";
             label9.Size = new Size(84, 25);
             label9.TabIndex = 5;
@@ -183,10 +183,10 @@
             // 
             dgItemList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgItemList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgItemList.Location = new Point(302, 478);
+            dgItemList.Location = new Point(302, 453);
             dgItemList.Name = "dgItemList";
             dgItemList.RowHeadersWidth = 51;
-            dgItemList.Size = new Size(1288, 506);
+            dgItemList.Size = new Size(1477, 579);
             dgItemList.TabIndex = 8;
             dgItemList.Click += dgItemList_Click;
             // 

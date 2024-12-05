@@ -74,7 +74,7 @@
             dgCustomerList.Location = new Point(297, 567);
             dgCustomerList.Name = "dgCustomerList";
             dgCustomerList.RowHeadersWidth = 51;
-            dgCustomerList.Size = new Size(1164, 282);
+            dgCustomerList.Size = new Size(1164, 465);
             dgCustomerList.TabIndex = 25;
             dgCustomerList.Click += dgCustomerList_Click;
             // 

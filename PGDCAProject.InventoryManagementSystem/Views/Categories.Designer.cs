@@ -51,7 +51,7 @@
             dgCategoryList.Location = new Point(297, 482);
             dgCategoryList.Name = "dgCategoryList";
             dgCategoryList.RowHeadersWidth = 51;
-            dgCategoryList.Size = new Size(841, 285);
+            dgCategoryList.Size = new Size(841, 544);
             dgCategoryList.TabIndex = 22;
             dgCategoryList.Click += dgCategoryList_Click;
             // 
