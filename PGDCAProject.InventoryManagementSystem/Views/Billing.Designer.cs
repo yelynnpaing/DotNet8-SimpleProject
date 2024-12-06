@@ -30,6 +30,8 @@
         {
             label8 = new Label();
             groupBox1 = new GroupBox();
+            label13 = new Label();
+            txtSerialNo = new MaskedTextBox();
             label6 = new Label();
             label5 = new Label();
             txtInvoiceNum = new MaskedTextBox();
@@ -43,10 +45,12 @@
             AddToBillBtn = new Button();
             label12 = new Label();
             txtQuantity = new MaskedTextBox();
-            cbEmoney = new CheckBox();
-            cbCards = new CheckBox();
-            cbCash = new CheckBox();
             groupBox2 = new GroupBox();
+            dateTimePicker1 = new DateTimePicker();
+            txtPaymentType = new Label();
+            radioEmoney = new RadioButton();
+            radioCard = new RadioButton();
+            radioCash = new RadioButton();
             label7 = new Label();
             lvOrderList = new ListView();
             txtTotalBill = new MaskedTextBox();
@@ -82,6 +86,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(txtSerialNo);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtInvoiceNum);
@@ -100,6 +106,22 @@
             groupBox1.Size = new Size(726, 302);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(423, 36);
+            label13.Name = "label13";
+            label13.Size = new Size(73, 20);
+            label13.TabIndex = 79;
+            label13.Text = "Serial No.";
+            // 
+            // txtSerialNo
+            // 
+            txtSerialNo.Location = new Point(423, 59);
+            txtSerialNo.Name = "txtSerialNo";
+            txtSerialNo.Size = new Size(283, 27);
+            txtSerialNo.TabIndex = 78;
             // 
             // label6
             // 
@@ -191,6 +213,7 @@
             ResetBtn.TabIndex = 56;
             ResetBtn.Text = "Reset";
             ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
             // 
             // AddToBillBtn
             // 
@@ -221,41 +244,13 @@
             txtQuantity.TabIndex = 50;
             txtQuantity.Leave += txtQuantity_Leave;
             // 
-            // cbEmoney
-            // 
-            cbEmoney.AutoSize = true;
-            cbEmoney.Font = new Font("Segoe UI", 10F);
-            cbEmoney.Location = new Point(264, 121);
-            cbEmoney.Name = "cbEmoney";
-            cbEmoney.Size = new Size(93, 27);
-            cbEmoney.TabIndex = 61;
-            cbEmoney.Text = "EMoney";
-            cbEmoney.UseVisualStyleBackColor = true;
-            // 
-            // cbCards
-            // 
-            cbCards.AutoSize = true;
-            cbCards.Font = new Font("Segoe UI", 10F);
-            cbCards.Location = new Point(140, 121);
-            cbCards.Name = "cbCards";
-            cbCards.Size = new Size(75, 27);
-            cbCards.TabIndex = 60;
-            cbCards.Text = "Cards";
-            cbCards.UseVisualStyleBackColor = true;
-            // 
-            // cbCash
-            // 
-            cbCash.AutoSize = true;
-            cbCash.Font = new Font("Segoe UI", 10F);
-            cbCash.Location = new Point(25, 121);
-            cbCash.Name = "cbCash";
-            cbCash.Size = new Size(69, 27);
-            cbCash.TabIndex = 59;
-            cbCash.Text = "Cash";
-            cbCash.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(dateTimePicker1);
+            groupBox2.Controls.Add(txtPaymentType);
+            groupBox2.Controls.Add(radioEmoney);
+            groupBox2.Controls.Add(radioCard);
+            groupBox2.Controls.Add(radioCash);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(lvOrderList);
             groupBox2.Controls.Add(txtTotalBill);
@@ -267,9 +262,6 @@
             groupBox2.Controls.Add(PrintBtn);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(cboCustomers);
-            groupBox2.Controls.Add(cbEmoney);
-            groupBox2.Controls.Add(cbCards);
-            groupBox2.Controls.Add(cbCash);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label11);
             groupBox2.Location = new Point(1023, 207);
@@ -277,6 +269,63 @@
             groupBox2.Size = new Size(889, 813);
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(729, 130);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(134, 27);
+            dateTimePicker1.TabIndex = 83;
+            // 
+            // txtPaymentType
+            // 
+            txtPaymentType.AutoSize = true;
+            txtPaymentType.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPaymentType.Location = new Point(208, 88);
+            txtPaymentType.Name = "txtPaymentType";
+            txtPaymentType.Size = new Size(50, 25);
+            txtPaymentType.TabIndex = 80;
+            txtPaymentType.Text = "Cash";
+            // 
+            // radioEmoney
+            // 
+            radioEmoney.AutoSize = true;
+            radioEmoney.Font = new Font("Segoe UI", 10F);
+            radioEmoney.Location = new Point(249, 130);
+            radioEmoney.Name = "radioEmoney";
+            radioEmoney.Size = new Size(92, 27);
+            radioEmoney.TabIndex = 82;
+            radioEmoney.TabStop = true;
+            radioEmoney.Text = "EMoney";
+            radioEmoney.UseVisualStyleBackColor = true;
+            radioEmoney.CheckedChanged += radioEmoney_CheckedChanged;
+            // 
+            // radioCard
+            // 
+            radioCard.AutoSize = true;
+            radioCard.Font = new Font("Segoe UI", 10F);
+            radioCard.Location = new Point(135, 130);
+            radioCard.Name = "radioCard";
+            radioCard.Size = new Size(74, 27);
+            radioCard.TabIndex = 81;
+            radioCard.TabStop = true;
+            radioCard.Text = "Cards";
+            radioCard.UseVisualStyleBackColor = true;
+            radioCard.CheckedChanged += radioCard_CheckedChanged;
+            // 
+            // radioCash
+            // 
+            radioCash.AutoSize = true;
+            radioCash.Font = new Font("Segoe UI", 10F);
+            radioCash.Location = new Point(25, 130);
+            radioCash.Name = "radioCash";
+            radioCash.Size = new Size(68, 27);
+            radioCash.TabIndex = 80;
+            radioCash.TabStop = true;
+            radioCash.Text = "Cash";
+            radioCash.UseVisualStyleBackColor = true;
+            radioCash.CheckedChanged += radioCash_CheckedChanged;
             // 
             // label7
             // 
@@ -290,6 +339,7 @@
             // 
             // lvOrderList
             // 
+            lvOrderList.FullRowSelect = true;
             lvOrderList.GridLines = true;
             lvOrderList.Location = new Point(25, 270);
             lvOrderList.Name = "lvOrderList";
@@ -301,17 +351,18 @@
             // txtTotalBill
             // 
             txtTotalBill.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTotalBill.Location = new Point(580, 763);
+            txtTotalBill.Location = new Point(577, 763);
             txtTotalBill.Name = "txtTotalBill";
-            txtTotalBill.Size = new Size(283, 31);
+            txtTotalBill.Size = new Size(286, 31);
             txtTotalBill.TabIndex = 78;
             txtTotalBill.Text = "0";
+            txtTotalBill.TextAlign = HorizontalAlignment.Center;
             // 
             // SaveBtn
             // 
             SaveBtn.BackColor = Color.CornflowerBlue;
             SaveBtn.ForeColor = Color.White;
-            SaveBtn.Location = new Point(597, 36);
+            SaveBtn.Location = new Point(22, 760);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(122, 41);
             SaveBtn.TabIndex = 74;
@@ -356,6 +407,7 @@
             DeleteBtn.TabIndex = 71;
             DeleteBtn.Text = "Delete Item";
             DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // PrintBtn
             // 
@@ -375,9 +427,9 @@
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label1.Location = new Point(22, 85);
             label1.Name = "label1";
-            label1.Size = new Size(178, 28);
+            label1.Size = new Size(192, 28);
             label1.TabIndex = 68;
-            label1.Text = "Payment Methods";
+            label1.Text = "Payment Methods -";
             // 
             // cboCustomers
             // 
@@ -432,9 +484,9 @@
             label9.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(18, 13);
             label9.Name = "label9";
-            label9.Size = new Size(102, 31);
+            label9.Size = new Size(237, 31);
             label9.TabIndex = 31;
-            label9.Text = "Item List";
+            label9.Text = "AVAILABLE - Item List";
             // 
             // label2
             // 
@@ -477,9 +529,6 @@
         private Label label8;
         private GroupBox groupBox1;
         private ComboBox cboItems;
-        private CheckBox cbEmoney;
-        private CheckBox cbCards;
-        private CheckBox cbCash;
         private Label label14;
         private Button ResetBtn;
         private Button AddToBillBtn;
@@ -510,5 +559,12 @@
         private ListView lvOrderList;
         private Label label7;
         private MaskedTextBox txtTotalBill;
+        private Label label13;
+        private MaskedTextBox txtSerialNo;
+        private RadioButton radioEmoney;
+        private RadioButton radioCard;
+        private RadioButton radioCash;
+        private Label txtPaymentType;
+        private DateTimePicker dateTimePicker1;
     }
 }

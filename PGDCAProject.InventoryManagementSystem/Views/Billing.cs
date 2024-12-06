@@ -23,6 +23,8 @@ namespace PGDCAProject.InventoryManagementSystem
         string str;
         DataSet Dset;
 
+        string PaymentType;
+
         private void Connection()
         {
             str = "Data Source=DESKTOP-L3SMK21\\SQLEXPRESS;Initial Catalog=ElectronicsDb;Persist Security Info=True;User ID=sa;Password=sasa@123;Trust Server Certificate=True";
@@ -32,12 +34,11 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void Clear()
         {
-            txtInvoiceNum.Text = "";
             cboItems.Text = "";
             txtPrice.Text = "";
+            txtSerialNo.Text = "";
             txtQuantity.Text = "";
             txtTotalCost.Text = "";
-            txtInvoiceNum.Focus();
         }
 
         private void FillCboItems()
@@ -91,7 +92,7 @@ namespace PGDCAProject.InventoryManagementSystem
             string IvName;
             int IvID;
 
-            string query = "SELECT InvoiceNo FROM TblOrders ORDER BY InvoiceNo";
+            string query = "SELECT InvoiceId FROM TblInvoices ORDER BY InvoiceId";
             SqlDataAdapter adapter = new SqlDataAdapter(query, consql);
             DataSet dset = new DataSet();
             adapter.Fill(dset, "Orders");
@@ -112,18 +113,18 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void ListViewColHeaderFill()
         {
-            lvOrderList.Columns.Add("#", 150);
-            lvOrderList.Columns.Add("ItemName", 250);
-            lvOrderList.Columns.Add("Price", 150);
+            lvOrderList.Columns.Add("#", 80);
+            lvOrderList.Columns.Add("ItemName", 300);
+            lvOrderList.Columns.Add("Price", 170);
             lvOrderList.Columns.Add("Quantity", 130);
             lvOrderList.Columns.Add("Total", 150);
         }
 
         private void Billing_Load(object sender, EventArgs e)
-        { 
+        {
             Connection();
             FillCboItems();
-            Clear();
+            txtInvoiceNum.Focus();
             FillDgItems();
             fillCboCustomers();
             ListViewColHeaderFill();
@@ -137,11 +138,12 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void cboItems_Leave(object sender, EventArgs e)
         {
-            string query = "SELECT ItemPrice FROM TblItems WHERE ItemId = '" + cboItems.SelectedValue + "'";
+            string query = "SELECT ItemId, ItemPrice FROM TblItems WHERE ItemId = '" + cboItems.SelectedValue + "'";
             SqlDataAdapter adapter = new SqlDataAdapter(query, consql);
             DataSet dset = new DataSet();
             adapter.Fill(dset, "Price");
-            txtPrice.Text = dset.Tables["Price"]!.Rows[0][0].ToString();
+            txtSerialNo.Text = dset.Tables["Price"]!.Rows[0][0].ToString();
+            txtPrice.Text = dset.Tables["Price"]!.Rows[0][1].ToString();
             txtQuantity.Focus();
         }
 
@@ -159,26 +161,72 @@ namespace PGDCAProject.InventoryManagementSystem
 
         private void AddToBillBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (txtSerialNo.Text == "")
             {
-                ListViewItem lvOrderItems = new ListViewItem(
-                   txtInvoiceNum.Text
-                );
-                lvOrderItems.SubItems.Add(cboItems.Text.ToString());
-                lvOrderItems.SubItems.Add(txtPrice.Text);
-                lvOrderItems.SubItems.Add(txtQuantity.Text);
-                lvOrderItems.SubItems.Add(txtTotalCost.Text);
-
-                lvOrderList.Items.Add(lvOrderItems);
-                txtTotalBill.Text = (Convert.ToDecimal(txtTotalCost.Text) + int.Parse(txtTotalBill.Text)).ToString();
-                Clear();
+                MessageBox.Show("Please Select Items First", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch
+            else
             {
-                MessageBox.Show("Something Wrong!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                try
+                {
+                    ListViewItem lvOrderItems = new ListViewItem(
+                        txtSerialNo.Text
+                    );
+                    lvOrderItems.SubItems.Add(cboItems.Text.ToString());
+                    lvOrderItems.SubItems.Add(txtPrice.Text);
+                    lvOrderItems.SubItems.Add(txtQuantity.Text);
+                    lvOrderItems.SubItems.Add(txtTotalCost.Text);
+
+                    lvOrderList.Items.Add(lvOrderItems);
+                    txtTotalBill.Text = (Convert.ToDecimal(txtTotalCost.Text) + Convert.ToDecimal(txtTotalBill.Text)).ToString();
+                    Clear();
+                }
+                catch
+                {
+                    MessageBox.Show("Something Wrong!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Decimal totalBill, amount;
+                totalBill = Convert.ToDecimal(txtTotalBill.Text);
+                amount = Convert.ToDecimal(lvOrderList.Items[lvOrderList.FocusedItem.Index].SubItems[4].Text);
+                txtTotalBill.Text = (totalBill - amount).ToString();
+                lvOrderList.Items[lvOrderList.FocusedItem.Index].Remove();
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Something wrong!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void radioCard_CheckedChanged(object sender, EventArgs e)
+        {
+            PaymentType = "Cards";
+            txtPaymentType.Text = PaymentType;
+        }
+
+        private void radioCash_CheckedChanged(object sender, EventArgs e)
+        {
+            PaymentType = "Cash";
+            txtPaymentType.Text = PaymentType;
+
+        }
+
+        private void radioEmoney_CheckedChanged(object sender, EventArgs e)
+        {
+            PaymentType = "Emoney";
+            txtPaymentType.Text = PaymentType;
+
+        }
     }
 }
