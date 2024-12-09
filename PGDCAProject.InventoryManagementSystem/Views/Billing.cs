@@ -5,6 +5,7 @@ using System.Data;
 //using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -87,6 +88,34 @@ namespace PGDCAProject.InventoryManagementSystem
             cboCustomers.ValueMember = dt.Columns["CustomerId"]!.ToString();
         }
 
+        private void fillCboPaymentStatus()
+        {
+            string query = "SELECT PsId, Type FROM TblPaymentStatus";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, consql);
+            DataSet dataSet = new DataSet();
+            DataTable dt = new DataTable();
+            adapter.Fill(dataSet, "cboPaymentStatus");
+            dt = dataSet.Tables["cboPaymentStatus"]!;
+
+            cboPaymentStatus.DataSource = dt;
+            cboPaymentStatus.DisplayMember = dt.Columns["Type"]!.ToString();
+            cboPaymentStatus.ValueMember = dt.Columns["PsId"]!.ToString();
+        }
+
+        private void fillCboOrderStatus()
+        {
+            string query = "SELECT OId, OrderType FROM TblOrderStatus";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, consql);
+            DataSet dataSet = new DataSet();
+            DataTable dt = new DataTable();
+            adapter.Fill(dataSet, "cboOrderStatus");
+            dt = dataSet.Tables["cboOrderStatus"]!;
+
+            cboOrderStatus.DataSource = dt;
+            cboOrderStatus.DisplayMember = dt.Columns["OrderType"]!.ToString();
+            cboOrderStatus.ValueMember = dt.Columns["OId"]!.ToString();
+        }
+
         private void GenerateInvoiceNo()
         {
             string IvName;
@@ -102,7 +131,7 @@ namespace PGDCAProject.InventoryManagementSystem
                 IvName = dset.Tables["Orders"]!.Rows[^1][0].ToString()!;
                 IvID = int.Parse(IvName.Substring(5, (IvName.Length - 5)));
                 txtInvoiceNum.Text = "IVNO-" + (IvID + 1).ToString("00000000");
-                txtBillInvoiceNum.Text = "IVNo-" + (IvID + 1).ToString("00000000");
+                txtBillInvoiceNum.Text = "IVNO-" + (IvID + 1).ToString("00000000");
             }
             else
             {
@@ -127,6 +156,8 @@ namespace PGDCAProject.InventoryManagementSystem
             txtInvoiceNum.Focus();
             FillDgItems();
             fillCboCustomers();
+            fillCboPaymentStatus();
+            fillCboOrderStatus();
             ListViewColHeaderFill();
         }
 
@@ -209,24 +240,70 @@ namespace PGDCAProject.InventoryManagementSystem
             Clear();
         }
 
-        private void radioCard_CheckedChanged(object sender, EventArgs e)
+        private void radioCash_CheckedChanged_1(object sender, EventArgs e)
+        {
+            PaymentType = "Cash";
+            txtPaymentType.Text = PaymentType;
+        }
+
+        private void radioCard_CheckedChanged_1(object sender, EventArgs e)
         {
             PaymentType = "Cards";
             txtPaymentType.Text = PaymentType;
         }
 
-        private void radioCash_CheckedChanged(object sender, EventArgs e)
-        {
-            PaymentType = "Cash";
-            txtPaymentType.Text = PaymentType;
-
-        }
-
-        private void radioEmoney_CheckedChanged(object sender, EventArgs e)
+        private void radioEMoney_CheckedChanged_1(object sender, EventArgs e)
         {
             PaymentType = "Emoney";
             txtPaymentType.Text = PaymentType;
+        }
 
+        private void SaveBillBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string OrderQuery = "INSERT INTO TblOrders VALUES ('" + cboCustomers.SelectedValue + "', " +
+                    "'" + InvoicedateTimePicker.Text + "', '" + cboOrderStatus.Text + "')";
+                SqlCommand OrderCmd = new SqlCommand(OrderQuery, consql);
+                OrderCmd.ExecuteNonQuery();
+
+                string SelectOderId = "SELECT MAX(OrderId) OrderId FROM TblOrders";
+                SqlDataAdapter adapter = new SqlDataAdapter(SelectOderId, consql);
+                DataSet dset = new DataSet();
+                DataTable dt = new DataTable();
+                adapter.Fill(dset, "Id");
+                dt = dset.Tables["Id"]!;
+
+                string OrderId = dt.Rows[0][0].ToString()!;
+
+                string InvoiceId = txtBillInvoiceNum.Text;
+                string paymentStatus = txtPaymentType.Text;
+                for (int i = 0; i <= lvOrderList.Items.Count - 1; i++)
+                {
+                    string ItemId = lvOrderList.Items[i].SubItems[0].Text;
+                    string ItemName = lvOrderList.Items[i].SubItems[1].Text;
+                    string ItemPrice = lvOrderList.Items[i].SubItems[2].Text;
+                    string ItemQuantity = lvOrderList.Items[i].SubItems[3].Text;
+                    string TotalAmount = lvOrderList.Items[i].SubItems[4].Text;
+
+                    string OrderDetailQuery = "INSERT INTO TblOrderDetails VALUES ('" + OrderId + "', '" + ItemId + "', " +
+                        "'" + ItemQuantity + "', '" + ItemPrice + "')";
+                    SqlCommand OrderDetailcmd = new SqlCommand(OrderDetailQuery, consql);
+                    OrderDetailcmd.ExecuteNonQuery();
+                }
+
+                string InvoiceQuery = "INSERT INTO TblInvoices VALUES ('" + txtBillInvoiceNum.Text + "', '" + OrderId + "', " +
+                    "'" + InvoicedateTimePicker.Text + "', '" + txtTotalBill.Text + "', '" + cboPaymentStatus.Text + "', " +
+                    "'" + txtPaymentType.Text + "')";
+                SqlCommand InvoiceCmd = new SqlCommand(InvoiceQuery, consql);
+                InvoiceCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Invoice Datas saving is success.", "Finish", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Something wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -46,21 +46,26 @@
             label12 = new Label();
             txtQuantity = new MaskedTextBox();
             groupBox2 = new GroupBox();
-            dateTimePicker1 = new DateTimePicker();
-            txtPaymentType = new Label();
-            radioEmoney = new RadioButton();
+            groupBox4 = new GroupBox();
+            radioEMoney = new RadioButton();
             radioCard = new RadioButton();
             radioCash = new RadioButton();
-            label7 = new Label();
+            txtPaymentType = new Label();
+            cboOrderStatus = new ComboBox();
+            cboPaymentStatus = new ComboBox();
+            label16 = new Label();
+            label15 = new Label();
+            InvoicedateTimePicker = new DateTimePicker();
+            label1 = new Label();
             lvOrderList = new ListView();
+            label7 = new Label();
             txtTotalBill = new MaskedTextBox();
-            SaveBtn = new Button();
+            SaveBillBtn = new Button();
             txtBillInvoiceNum = new MaskedTextBox();
             label3 = new Label();
             UpdateBtn = new Button();
             DeleteBtn = new Button();
             PrintBtn = new Button();
-            label1 = new Label();
             cboCustomers = new ComboBox();
             label10 = new Label();
             label11 = new Label();
@@ -70,6 +75,7 @@
             label2 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgItemList).BeginInit();
             SuspendLayout();
@@ -246,21 +252,16 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Controls.Add(txtPaymentType);
-            groupBox2.Controls.Add(radioEmoney);
-            groupBox2.Controls.Add(radioCard);
-            groupBox2.Controls.Add(radioCash);
-            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(groupBox4);
             groupBox2.Controls.Add(lvOrderList);
+            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(txtTotalBill);
-            groupBox2.Controls.Add(SaveBtn);
+            groupBox2.Controls.Add(SaveBillBtn);
             groupBox2.Controls.Add(txtBillInvoiceNum);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(UpdateBtn);
             groupBox2.Controls.Add(DeleteBtn);
             groupBox2.Controls.Add(PrintBtn);
-            groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(cboCustomers);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label11);
@@ -270,62 +271,136 @@
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
             // 
-            // dateTimePicker1
+            // groupBox4
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(729, 130);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(134, 27);
-            dateTimePicker1.TabIndex = 83;
+            groupBox4.Controls.Add(radioEMoney);
+            groupBox4.Controls.Add(radioCard);
+            groupBox4.Controls.Add(radioCash);
+            groupBox4.Controls.Add(txtPaymentType);
+            groupBox4.Controls.Add(cboOrderStatus);
+            groupBox4.Controls.Add(cboPaymentStatus);
+            groupBox4.Controls.Add(label16);
+            groupBox4.Controls.Add(label15);
+            groupBox4.Controls.Add(InvoicedateTimePicker);
+            groupBox4.Controls.Add(label1);
+            groupBox4.Location = new Point(25, 68);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(694, 200);
+            groupBox4.TabIndex = 85;
+            groupBox4.TabStop = false;
             // 
-            // txtPaymentType
+            // radioEMoney
             // 
-            txtPaymentType.AutoSize = true;
-            txtPaymentType.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPaymentType.Location = new Point(208, 88);
-            txtPaymentType.Name = "txtPaymentType";
-            txtPaymentType.Size = new Size(50, 25);
-            txtPaymentType.TabIndex = 80;
-            txtPaymentType.Text = "Cash";
-            // 
-            // radioEmoney
-            // 
-            radioEmoney.AutoSize = true;
-            radioEmoney.Font = new Font("Segoe UI", 10F);
-            radioEmoney.Location = new Point(249, 130);
-            radioEmoney.Name = "radioEmoney";
-            radioEmoney.Size = new Size(92, 27);
-            radioEmoney.TabIndex = 82;
-            radioEmoney.TabStop = true;
-            radioEmoney.Text = "EMoney";
-            radioEmoney.UseVisualStyleBackColor = true;
-            radioEmoney.CheckedChanged += radioEmoney_CheckedChanged;
+            radioEMoney.AutoSize = true;
+            radioEMoney.Location = new Point(205, 59);
+            radioEMoney.Name = "radioEMoney";
+            radioEMoney.Size = new Size(83, 24);
+            radioEMoney.TabIndex = 96;
+            radioEMoney.TabStop = true;
+            radioEMoney.Text = "EMoney";
+            radioEMoney.UseVisualStyleBackColor = true;
+            radioEMoney.CheckedChanged += radioEMoney_CheckedChanged_1;
             // 
             // radioCard
             // 
             radioCard.AutoSize = true;
-            radioCard.Font = new Font("Segoe UI", 10F);
-            radioCard.Location = new Point(135, 130);
+            radioCard.Location = new Point(111, 60);
             radioCard.Name = "radioCard";
-            radioCard.Size = new Size(74, 27);
-            radioCard.TabIndex = 81;
+            radioCard.Size = new Size(61, 24);
+            radioCard.TabIndex = 95;
             radioCard.TabStop = true;
-            radioCard.Text = "Cards";
+            radioCard.Text = "Card";
             radioCard.UseVisualStyleBackColor = true;
-            radioCard.CheckedChanged += radioCard_CheckedChanged;
+            radioCard.CheckedChanged += radioCard_CheckedChanged_1;
             // 
             // radioCash
             // 
             radioCash.AutoSize = true;
-            radioCash.Font = new Font("Segoe UI", 10F);
-            radioCash.Location = new Point(25, 130);
+            radioCash.Location = new Point(20, 60);
             radioCash.Name = "radioCash";
-            radioCash.Size = new Size(68, 27);
-            radioCash.TabIndex = 80;
+            radioCash.Size = new Size(61, 24);
+            radioCash.TabIndex = 94;
             radioCash.TabStop = true;
             radioCash.Text = "Cash";
             radioCash.UseVisualStyleBackColor = true;
-            radioCash.CheckedChanged += radioCash_CheckedChanged;
+            radioCash.CheckedChanged += radioCash_CheckedChanged_1;
+            // 
+            // txtPaymentType
+            // 
+            txtPaymentType.AutoSize = true;
+            txtPaymentType.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            txtPaymentType.Location = new Point(211, 23);
+            txtPaymentType.Name = "txtPaymentType";
+            txtPaymentType.Size = new Size(106, 28);
+            txtPaymentType.TabIndex = 93;
+            txtPaymentType.Text = "No Choice";
+            // 
+            // cboOrderStatus
+            // 
+            cboOrderStatus.FormattingEnabled = true;
+            cboOrderStatus.Location = new Point(455, 154);
+            cboOrderStatus.Name = "cboOrderStatus";
+            cboOrderStatus.Size = new Size(216, 28);
+            cboOrderStatus.TabIndex = 92;
+            // 
+            // cboPaymentStatus
+            // 
+            cboPaymentStatus.FormattingEnabled = true;
+            cboPaymentStatus.Location = new Point(20, 154);
+            cboPaymentStatus.Name = "cboPaymentStatus";
+            cboPaymentStatus.Size = new Size(216, 28);
+            cboPaymentStatus.TabIndex = 86;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label16.Location = new Point(20, 123);
+            label16.Name = "label16";
+            label16.Size = new Size(152, 28);
+            label16.TabIndex = 91;
+            label16.Text = "Payment Status";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label15.Location = new Point(455, 119);
+            label15.Name = "label15";
+            label15.Size = new Size(125, 28);
+            label15.TabIndex = 88;
+            label15.Text = "Order Status";
+            // 
+            // InvoicedateTimePicker
+            // 
+            InvoicedateTimePicker.Format = DateTimePickerFormat.Short;
+            InvoicedateTimePicker.Location = new Point(455, 29);
+            InvoicedateTimePicker.Name = "InvoicedateTimePicker";
+            InvoicedateTimePicker.Size = new Size(216, 27);
+            InvoicedateTimePicker.TabIndex = 83;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label1.Location = new Point(17, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(192, 28);
+            label1.TabIndex = 83;
+            label1.Text = "Payment Methods -";
+            // 
+            // lvOrderList
+            // 
+            lvOrderList.FullRowSelect = true;
+            lvOrderList.GridLines = true;
+            lvOrderList.HoverSelection = true;
+            lvOrderList.Location = new Point(22, 362);
+            lvOrderList.Name = "lvOrderList";
+            lvOrderList.Size = new Size(841, 392);
+            lvOrderList.Sorting = SortOrder.Ascending;
+            lvOrderList.TabIndex = 84;
+            lvOrderList.UseCompatibleStateImageBehavior = false;
+            lvOrderList.View = View.Details;
             // 
             // label7
             // 
@@ -337,17 +412,6 @@
             label7.TabIndex = 79;
             label7.Text = "Total Bill - ";
             // 
-            // lvOrderList
-            // 
-            lvOrderList.FullRowSelect = true;
-            lvOrderList.GridLines = true;
-            lvOrderList.Location = new Point(25, 270);
-            lvOrderList.Name = "lvOrderList";
-            lvOrderList.Size = new Size(838, 479);
-            lvOrderList.TabIndex = 75;
-            lvOrderList.UseCompatibleStateImageBehavior = false;
-            lvOrderList.View = View.Details;
-            // 
             // txtTotalBill
             // 
             txtTotalBill.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -358,16 +422,17 @@
             txtTotalBill.Text = "0";
             txtTotalBill.TextAlign = HorizontalAlignment.Center;
             // 
-            // SaveBtn
+            // SaveBillBtn
             // 
-            SaveBtn.BackColor = Color.CornflowerBlue;
-            SaveBtn.ForeColor = Color.White;
-            SaveBtn.Location = new Point(22, 760);
-            SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(122, 41);
-            SaveBtn.TabIndex = 74;
-            SaveBtn.Text = "Save Bill";
-            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBillBtn.BackColor = Color.CornflowerBlue;
+            SaveBillBtn.ForeColor = Color.White;
+            SaveBillBtn.Location = new Point(22, 760);
+            SaveBillBtn.Name = "SaveBillBtn";
+            SaveBillBtn.Size = new Size(122, 41);
+            SaveBillBtn.TabIndex = 74;
+            SaveBillBtn.Text = "Save Bill";
+            SaveBillBtn.UseVisualStyleBackColor = false;
+            SaveBillBtn.Click += SaveBillBtn_Click;
             // 
             // txtBillInvoiceNum
             // 
@@ -390,7 +455,7 @@
             // UpdateBtn
             // 
             UpdateBtn.BackColor = Color.Yellow;
-            UpdateBtn.Location = new Point(597, 223);
+            UpdateBtn.Location = new Point(597, 311);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(122, 41);
             UpdateBtn.TabIndex = 70;
@@ -401,7 +466,7 @@
             // 
             DeleteBtn.BackColor = Color.Red;
             DeleteBtn.ForeColor = Color.White;
-            DeleteBtn.Location = new Point(741, 223);
+            DeleteBtn.Location = new Point(741, 311);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(122, 41);
             DeleteBtn.TabIndex = 71;
@@ -421,20 +486,10 @@
             PrintBtn.Text = "Print Bill";
             PrintBtn.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label1.Location = new Point(22, 85);
-            label1.Name = "label1";
-            label1.Size = new Size(192, 28);
-            label1.TabIndex = 68;
-            label1.Text = "Payment Methods -";
-            // 
             // cboCustomers
             // 
             cboCustomers.FormattingEnabled = true;
-            cboCustomers.Location = new Point(174, 236);
+            cboCustomers.Location = new Point(174, 324);
             cboCustomers.Name = "cboCustomers";
             cboCustomers.Size = new Size(216, 28);
             cboCustomers.TabIndex = 67;
@@ -443,7 +498,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label10.Location = new Point(22, 236);
+            label10.Location = new Point(22, 324);
             label10.Name = "label10";
             label10.Size = new Size(97, 28);
             label10.TabIndex = 64;
@@ -452,7 +507,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(174, 208);
+            label11.Location = new Point(174, 298);
             label11.Name = "label11";
             label11.Size = new Size(116, 20);
             label11.TabIndex = 66;
@@ -517,6 +572,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgItemList).EndInit();
@@ -535,7 +592,6 @@
         private Label label12;
         private MaskedTextBox txtQuantity;
         private GroupBox groupBox2;
-        private Label label1;
         private ComboBox cboCustomers;
         private Label label10;
         private Label label11;
@@ -549,22 +605,28 @@
         private MaskedTextBox txtBillInvoiceNum;
         private Label label3;
         private Button InvoiceNoBtn;
-        private Button SaveBtn;
+        private Button SaveBillBtn;
         private Label label5;
         private MaskedTextBox txtTotalCost;
         private Label label4;
         private MaskedTextBox txtPrice;
         private Label label6;
         private MaskedTextBox txtInvoiceNum;
-        private ListView lvOrderList;
         private Label label7;
         private MaskedTextBox txtTotalBill;
         private Label label13;
         private MaskedTextBox txtSerialNo;
-        private RadioButton radioEmoney;
+        private DateTimePicker InvoicedateTimePicker;
+        private ListView lvOrderList;
+        private GroupBox groupBox4;
+        private Label label15;
+        private Label label1;
+        private Label label16;
+        private ComboBox cboOrderStatus;
+        private ComboBox cboPaymentStatus;
+        private Label txtPaymentType;
+        private RadioButton radioEMoney;
         private RadioButton radioCard;
         private RadioButton radioCash;
-        private Label txtPaymentType;
-        private DateTimePicker dateTimePicker1;
     }
 }
